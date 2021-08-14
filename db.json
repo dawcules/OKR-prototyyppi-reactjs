@@ -1,0 +1,48 @@
+{
+  "objectives": [
+    {
+      "id": 0.2083944979550949,
+      "user": "Matti Meikäläinen",
+      "objective": "Finish this work1",
+      "kr1": "Code a React app1",
+      "kr1value": 0.0,
+      "kr2": "Configure a Appsheet app",
+      "kr2value": 0.0,
+      "kr3": "Write the thesis",
+      "kr3value": 0.0
+    },
+    {
+      "id": 0.07090850595533005,
+      "user": "Matti Meikäläinen",
+      "objective": "Finish this work3",
+      "kr1": "Code a React app3",
+      "kr1value": 0.0,
+      "kr2": "Configure a Appsheet app",
+      "kr2value": 0.0,
+      "kr3": "Write the thesis",
+      "kr3value": 0.0
+    },
+    {
+      "id": 0.8381427361913654,
+      "user": "Matti Meikäläinen",
+      "objective": "Finish this work4",
+      "kr1": "Code a React app4",
+      "kr1value": 0.0,
+      "kr2": "Configure a Appsheet app",
+      "kr2value": 0.0,
+      "kr3": "Write the thesis",
+      "kr3value": 0.0
+    },
+    {
+      "id": 0.49301830766458,
+      "user": "Matti Meikäläinen",
+      "objective": "Finish this work 2",
+      "kr1": "Code a React app 2",
+      "kr1value": 0.5,
+      "kr2": "Configure a Appsheet app 2",
+      "kr2value": 0.3,
+      "kr3": "Write the thesis 2",
+      "kr3value": 0.9
+    }
+  ]
+}
