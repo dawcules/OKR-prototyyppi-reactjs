@@ -34,7 +34,7 @@ const postObjective = async (user, objective, kr1, kr2, kr3) => {
   };
 
   const res = await postObjAsync(data, "objectives");
-  if (res.status === 200) {
+  if (res.status === 200 || res.status === 201) {
     window.location.reload();
   } else if (res.status === 400) {
     console.log("Unable to submit idea", res.json());
@@ -44,6 +44,22 @@ const postObjective = async (user, objective, kr1, kr2, kr3) => {
   }
 };
 
+const updateObjective = async (kr, val, id) => {
+  var krType= kr;
+  try {
+    const post = {
+      [krType] : val,
+      id: id,
+    }
+    const update = await putObjAsync(post, "objectives");
+    const json = await update.json();
+    console.log(json);
+  } catch (e) {
+    console.log(e);
+  }
+  window.location.reload();
+};
+
 const App = () => {
   const [objectives, setObjectives] = useState([]);
   const [values, setValues] = useState({
@@ -51,7 +67,7 @@ const App = () => {
     kr1: "",
     kr2: "",
     kr3: "",
-    kr1Slider: 0,
+    krAvg: 0.0,
   });
 
   useEffect(() => {
@@ -63,15 +79,6 @@ const App = () => {
   }, []);
 
   const myChangeHandler = (e) => {
- 
-    setValues({ ...values, [e.target.name]: e.target.value });
-  };
-
-  const mySliderHandler = name => (e) => {
-    console.log(name);
-    console.log(e.target)
-    // https://stackoverflow.com/questions/44917513/passing-an-additional-parameter-with-an-onchange-event
-
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
@@ -88,13 +95,12 @@ const App = () => {
           <Typography>{objective.kr1}</Typography>
 
           <Slider
-            onChange = {(event, value) => {event.target.value = value; mySliderHandler(event);}}
+            onChangeCommitted={ (e, val) => updateObjective("kr1value",val, objective.id) }
             aria-labelledby="kr1Slider"
             name = "kr1Slider"
             aria-label={objective.kr1}
-            //defaultValue={objective.kr1value ? objective.kr1value : 0}
+            defaultValue={objective.kr1value ? objective.kr1value : 0}
             step={0.1}
-            value={values.kr1Slider}
             marks
             min={0.0}
             max={1.0}
@@ -106,8 +112,8 @@ const App = () => {
         <div className="kr2">
           <Typography>{objective.kr2}</Typography>
           <Slider
-          /* onChangeCommitted={funkkari} */
-            aria-label={objective.kr2}
+            onChangeCommitted={ (e, val) => updateObjective("kr2value",val, objective.id) }
+            aria-label={objective.kr2value}
             aria-labelledby="kr2Slider"
             defaultValue={objective.kr2value ? objective.kr2value : 0}
             step={0.1}
@@ -122,7 +128,7 @@ const App = () => {
         <div className="kr3">
           <Typography>{objective.kr3}</Typography>
           <Slider
-                  /* onChangeCommitted={funkkari} */
+            onChangeCommitted={ (e, val) => updateObjective("kr3value",val, objective.id) }
             aria-label={objective.kr3}
             aria-labelledby="kr3Slider"
             defaultValue={objective.kr3value ? objective.kr3value : 0}
@@ -135,7 +141,7 @@ const App = () => {
           />
         </div>
         <br></br>
-        <Typography>Average: {(objective.kr1value + objective.kr1value + objective.kr1value) / 3}</Typography>
+        <Typography>Average: {Math.round(((objective.kr1value + objective.kr2value + objective.kr3value) / 3)*10)/10} </Typography>
       </GridListTile>
     );
   };

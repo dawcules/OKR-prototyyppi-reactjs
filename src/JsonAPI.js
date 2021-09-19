@@ -24,7 +24,7 @@ const JsonAPI = () => {
     const { id } = data || null;
     if (id) {
       const res = await fetch(rootUrl + "/" + url + "/" + id, {
-        method: "PUT",
+        method: "PATCH",
         headers: {
           "Content-type": "application/json",
         },
