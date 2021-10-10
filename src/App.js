@@ -12,6 +12,10 @@ import { withStyles } from "@material-ui/styles";
 import "./App.css";
 import JsonAPI from "./JsonAPI";
 
+// TODO: Lomake eri näkymään
+// TODO: Objectiven poistaminen
+// TODO: Käyttäjänimi
+
 const styles = (theme) => ({
   color: {
     backgroundColor: "#bedbfa",

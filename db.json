@@ -5,22 +5,22 @@
       "user": "Matti Meikäläinen",
       "objective": "Finish this work",
       "kr1": "Code a React app",
-      "kr1value": 0,
+      "kr1value": 0.3,
       "kr2": "Configure a Appsheet app",
-      "kr2value": 0.5,
+      "kr2value": 0.4,
       "kr3": "Write the thesis",
-      "kr3value": 0.6
+      "kr3value": 0.4
     },
     {
       "id": 0.16647616805991983,
       "user": "Matti Meikäläinen",
       "objective": "Finish this work",
       "kr1": "Code a React app",
-      "kr1value": 1,
+      "kr1value": 0.6,
       "kr2": "Configure a Appsheet app",
-      "kr2value": 1,
+      "kr2value": 0.7,
       "kr3": "Jotain jotain",
-      "kr3value": 0.8
+      "kr3value": 0.3
     }
   ]
 }
